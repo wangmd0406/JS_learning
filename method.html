@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+	<style>
+      
+	
+		/*
+		<!--test2-->
+		
+		.msgBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 242px;
+        background: #eee;
+      }
+
+      .msgBox p {
+        line-height: 1.5;
+        padding: 10px 20px;
+        color: #333333;
+		  padding-left: 82px;
+		  background-position: 25px center;
+		  background-repeat: no-repeat;
+      }
+
+      .msgBox button {
+        background: none;
+        border: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.1rem;
+        color: #aaa;
+      }
+*/
+		
+		html {
+        width: 100%;
+        height: inherit;
+      }
+      canvas {
+        display: block;
+      }
+      body {
+        margin: 0;
+      }
+      button {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+      }
+
+    </style>
+</head>
+
+<body>
+	<!--
+	<div style="width: 100px;height: 100px; margin: 0 auto"> <h1 style=""></h1></div>
+	<script>
+		var h1=document.querySelector('h1');
+		
+		var browserType='Safari';
+		
+		h1.innerHTML=browserType.length;//获取字符串长度
+		
+		h1.innerHTML=browserType.indexOf('fari');//返回2，（fari在browserType中的起始位置）
+		
+		h1.innerHTML=browserType.indexOf('fafa');//返回-1，（在主字符串中找不到子字符串）
+		
+		h1.innerHTML=browserType.slice(0,3);//返回第0，1，2三个字符串（Saf）,(slice(开始，结束))
+		
+		h1.innerHTML=browserType.slice(2);//返回fari，从第三个字符开始返回
+		
+		//转换示例
+		
+		var radData='My Name Is MuD';
+		
+		h1.innerHTML=radData.toLowerCase();//转换为全小写
+		h1.innerHTML=radData.toUpperCase();//转换为全大写
+		
+		//更新字符串
+		
+		h1.innerHTML=browserType.replace('S','Z');//返回Zafari，将S替换为Z；
+		
+		//数组
+		var myData = 'Manchester,London,Liverpool,Birmingham,Leeds,Carlisle';
+		
+		var myArray=myData.split(',');//字符串myData转换为myArray，并且用','分隔为数组
+		
+		h1.innerHTML=myArray[0];
+		
+		myData_New=myArray.join(',');//split反操作
+		
+		h1.innerHTML=myData_New;
+		
+			//数组添加、改写、删除(unshift()和shift()以完全相同的方式工作，but从数组开始处进行操作)
+		myArray.push('Cardiff');//添加一个数组到myArray末尾，可以同时添加多个.push('a','b',...)
+		h1.innerHTML=myArray[6];
+		
+		var removeItem=myArray.pop();//删除myArray最后一个项目并传递给removeItem
+	</script>
+	-->
+	
+	<!---test2
+	
+	<button>Display message box</button>
+	
+	<script>
+		function displayMessage(msgText,msgType){
+			var html=document.querySelector('html');
+			
+			var panel=document.createElement('div');
+			panel.setAttribute('class','msgBox');
+			html.appendChild(panel);
+			
+			var msg=document.createElement('p');
+			msg.textContent=msgText;
+			panel.appendChild(msg);
+			
+			var closeBtn=document.createElement('button');
+			closeBtn.textContent='x';
+			panel.appendChild(closeBtn);
+			
+			closeBtn.onclick=function(){
+				panel.parentNode.removeChild(panel);
+			}
+			if(msgType==='warning'){
+				msg.style.backgroundImage='url(icons/warning.png)';
+				panel.style.backgroundColor='red';
+			}else if(msgType==='chat'){
+				msg.style.backgroundImage='url(icons/chat.png)';
+				panel.style.backgroundColor='aqua';
+			}else{
+				msg.style.paddingLeft='20px';
+			}
+		}
+		var btn=document.querySelector('button');
+		btn.onclick = function() {
+		  displayMessage('Woo, this is a different message!','warning');
+		}
+		
+	
+		
+	</script>
+
+	-->
+	
+	<button>Update</button>
+
+	  <canvas></canvas>
+
+
+		<script>
+		var btn = document.querySelector('button');
+		var canvas = document.querySelector('canvas');
+		var ctx = canvas.getContext('2d');
+		var WIDTH = document.documentElement.clientWidth;
+		var HEIGHT = document.documentElement.clientHeight;
+		canvas.width = WIDTH;
+		canvas.height = HEIGHT;
+		function random(number) {
+		  return Math.floor(Math.random()*number);
+		}
+		function draw() {
+		  ctx.clearRect(0,0,WIDTH,HEIGHT);
+		  for(var i = 0; i < 100; i++) {
+			ctx.beginPath();
+			ctx.fillStyle = 'rgba(255,0,0,0.5)';
+			ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
+			ctx.fill();
+		  }
+		}
+		btn.addEventListener('click',draw);
+
+		</script>
+</body>
+</html>
